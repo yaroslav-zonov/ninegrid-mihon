@@ -1,0 +1,58 @@
+plugins {
+    id("com.android.application") version "8.7.3"
+    id("org.jetbrains.kotlin.android") version "2.1.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0"
+}
+
+android {
+    namespace = "eu.kanade.tachiyomi.extension.ru.ninegrid"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "eu.kanade.tachiyomi.extension.ru.ninegrid"
+        minSdk = 21
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+
+        manifestPlaceholders["appName"] = "Tachiyomi: NineGrid"
+        manifestPlaceholders["extClass"] = ".NineGrid"
+        manifestPlaceholders["extFactory"] = ""
+        manifestPlaceholders["nsfw"] = "0"
+        manifestPlaceholders["isConfigurable"] = "1"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+}
+
+dependencies {
+    // Mihon/Tachiyomi extension library (provides HttpSource, SManga, etc.)
+    compileOnly("com.github.tachiyomiorg:extensions-lib:1.5.0")
+
+    // Kotlin serialization for JSON parsing
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    // AndroidX preferences (for ConfigurableSource)
+    compileOnly("androidx.preference:preference-ktx:1.2.1")
+
+    // Injekt (dependency injection used by Mihon)
+    compileOnly("com.github.inorichi.injekt:injekt-core:65b0440")
+}
