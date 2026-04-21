@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application>
+    <application
+        android:allowBackup="false"
+        android:label="${appName}"
+        android:supportsRtl="true">
+
+        <!-- Mihon extension metadata — required for discovery -->
+        <meta-data
+            android:name="tachiyomi.extension.class"
+            android:value="${extClass}" />
+        <meta-data
+            android:name="tachiyomi.extension.factory"
+            android:value="${extFactory}" />
+        <meta-data
+            android:name="tachiyomi.extension.nsfw"
+            android:value="${nsfw}" />
+        <meta-data
+            android:name="tachiyomi.extension.hasSettings"
+            android:value="${isConfigurable}" />
+
+        <!-- Deep link handler -->
         <activity
-            android:name=".ru.ninegrid.NineGridUrlActivity"
+            android:name=".NineGridUrlActivity"
             android:excludeFromRecents="true"
             android:exported="true"
             android:theme="@android:style/Theme.NoDisplay">
