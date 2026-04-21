@@ -3,10 +3,11 @@
 
     <application
         android:allowBackup="false"
+        android:icon="@android:drawable/sym_def_app_icon"
         android:label="${appName}"
         android:supportsRtl="true">
 
-        <!-- Mihon extension metadata — required for discovery -->
+        <!-- Required: Mihon discovers extensions via this meta-data -->
         <meta-data
             android:name="tachiyomi.extension.class"
             android:value="${extClass}" />
@@ -20,7 +21,16 @@
             android:name="tachiyomi.extension.hasSettings"
             android:value="${isConfigurable}" />
 
-        <!-- Deep link handler -->
+        <!-- Required: Mihon scans for this action to find extensions -->
+        <receiver
+            android:name=".NineGridReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="eu.kanade.tachiyomi.extension.EXTENSION" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Optional: Deep link handler -->
         <activity
             android:name=".NineGridUrlActivity"
             android:excludeFromRecents="true"
