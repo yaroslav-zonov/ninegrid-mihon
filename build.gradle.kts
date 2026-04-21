@@ -44,8 +44,8 @@ android {
 }
 
 dependencies {
-    // Mihon/Tachiyomi extension library (provides HttpSource, SManga, etc.)
-    compileOnly("com.github.tachiyomiorg:extensions-lib:1.5.0")
+    // Mihon extension library (provides HttpSource, SManga, etc.)
+    compileOnly("com.github.keiyoushi:extensions-lib:d81081f0f4")
 
     // Kotlin serialization for JSON parsing
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
@@ -54,5 +54,5 @@ dependencies {
     compileOnly("androidx.preference:preference-ktx:1.2.1")
 
     // Injekt (dependency injection used by Mihon)
-    compileOnly("com.github.inorichi.injekt:injekt-core:65b0440")
+    compileOnly("com.github.null2264.injekt:injekt-core:4135455a2a")
 }
