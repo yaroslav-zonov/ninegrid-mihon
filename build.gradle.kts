@@ -1,7 +1,7 @@
 plugins {
-    id("com.android.application") version "8.7.3"
-    id("org.jetbrains.kotlin.android") version "2.1.0"
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0"
+    id("com.android.application") version "8.9.1"
+    id("org.jetbrains.kotlin.android") version "2.3.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.3.0"
 }
 
 android {
@@ -52,6 +52,9 @@ dependencies {
 
     // AndroidX preferences (for ConfigurableSource)
     compileOnly("androidx.preference:preference-ktx:1.2.1")
+
+    // OkHttp (provided by Mihon at runtime)
+    compileOnly("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
 
     // Injekt (dependency injection used by Mihon)
     compileOnly("com.github.null2264.injekt:injekt-core:4135455a2a")
